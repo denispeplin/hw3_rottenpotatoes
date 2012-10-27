@@ -39,3 +39,8 @@ Then /I should see all movies/ do
   rows = all("table#movies tr").count
   assert rows == Movie.count + 1
 end
+
+Then /I should see (\d*) movies/ do |movies_count|
+  rows = all("table#movies tr").count
+  assert rows == movies_count.to_i + 1
+end
